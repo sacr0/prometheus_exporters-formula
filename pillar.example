@@ -8,6 +8,6 @@ prometheus_exporters:
     collector_textfile_output_dir: '/tmp/node_exporter'
     textfile_collectors:
       smartmon:
-        pkg: smartctl
-        scriptname: smartmon.py
+        pkg: smartmontools
+        scriptname: smartmon.sh
         cron_minute: 6
