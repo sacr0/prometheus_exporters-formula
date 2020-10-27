@@ -1,0 +1,13 @@
+prometheus_exporters:
+  node_exporter:
+    pkg: prometheus-node-exporter
+    service: prometheus-node-exporter
+    configfile: /etc/conf.d/prometheus-node-exporter
+    configuration: 'NODE_EXPORTER_ARGS="--collector.textfile.directory=/tmp/node_exporter"'
+    collector_textfile_script_dir: '/opt/prometheus/node_exporter/'
+    collector_textfile_output_dir: '/tmp/node_exporter'
+    textfile_collectors:
+      smartmon:
+        pkg: smartctl
+        scriptname: smartmon.py
+        cron_minute: 6

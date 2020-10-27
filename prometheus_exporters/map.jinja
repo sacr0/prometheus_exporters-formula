@@ -1,0 +1,4 @@
+{% set exporters = salt['grains.filter_by']({
+    'Arch': {},
+    'default': {},
+}, grain="os_family", merge=salt['pillar.get']('prometheus_exporters:lookup')) %}
