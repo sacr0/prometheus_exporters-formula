@@ -37,7 +37,7 @@ prometheus-exporters-install-textfile_collector-{{ collector }}:
   cron.present:
     - identifier: prometheus-exporters-{{ exporter_name }}-textfile_collectors-{{ collector }}-cronjob
     - name: cd {{ exporter_details.collector_textfile_output_dir }} && LANG=C {{ exporter_details.collector_textfile_script_dir }}/{{ config.scriptname }} > .smartmon.prom$$ && mv .smartmon.prom$$ smartmon.prom
-    - minute: "{{ config.get('minute', '*') }}"
+    - minute: "{{ config.get('cron_minute', '*') }}"
     - comment: Prometheus' {{ exporter_name }}'s {{ collector }} textfile collector
     - require:
       - pkg: prometheus-exporters-install-textfile_collector-{{ collector }}
